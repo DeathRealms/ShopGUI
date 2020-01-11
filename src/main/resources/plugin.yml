@@ -1,0 +1,7 @@
+name: ShopGUI
+version: @version@
+main: me.deathrealms.shopgui.Shop
+api-version: "1.14"
+depend: [Vault]
+authors: [DeathRealms]
+description: A shop gui plugin.

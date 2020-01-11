@@ -1,0 +1,129 @@
+categories:
+  farming:
+    name: "&aFarming &7&l& &aFood"
+    rows: 4
+    material: CACTUS
+  mobs:
+    name: "&6Mob &6Drops"
+    rows: 3
+    material: BLAZE_ROD
+
+farming:
+  items:
+    SUGAR_CANE:
+      buy-price: 10.15
+      sell-price: 3.65
+    WHEAT:
+      amount: 64
+      buy-price: 675
+      sell-price: 192
+    CACTUS:
+      buy-price: 9.37
+      sell-price: 2.87
+    NETHER_STALK:
+      buy-price: 11.30
+      sell-price: 6.25
+    CARROT_ITEM:
+      amount: 64
+      buy-price: 775
+      sell-price: 208
+    POTATO:
+      amount: 64
+      buy-price: 750
+      sell-price: 188.8
+    SEEDS:
+      amount: 64
+      buy-price: 500
+      sell-price: 16
+    MELON:
+      buy-price: 3.12
+      sell-price: 0.80
+    APPLE:
+      buy-price: 1000
+      sell-price: 75
+    COOKIE:
+      amount: 16
+      buy-price: 500
+    CAKE:
+      amount: 8
+      buy-price: 500
+    BREAD:
+      amount: 32
+      buy-price: 400
+    BAKED_POTATO:
+      amount: 32
+      buy-price: 250
+    COOKED_MUTTON:
+      amount: 64
+      buy-price: 500
+    COOKED_CHICKEN:
+      amount: 64
+      buy-price: 500
+    COOKED_BEEF:
+      amount: 64
+      buy-price: 500
+    COOKED_PORKCHOP:
+      amount: 64
+      buy-price: 500
+    COOKED_RABBIT:
+      amount: 64
+      buy-price: 500
+    COOKED_FISH:
+      amount: 16
+      buy-price: 750
+
+mobs:
+  items:
+    368:
+      buy-price: 250
+      sell-price: 25
+    289:
+      buy-price: 300
+      sell-price: 6.40
+    371:
+      buy-price: 8.32
+      sell-price: 4.44
+    265:
+      sell-price: 10
+    341:
+      amount: 64
+      buy-price: 300
+      sell-price: 75
+    409:
+      amount: 64
+      sell-price: 100
+    369:
+      amount: 8
+      buy-price: 2500
+      sell-price: 16
+    367:
+      sell-price: 2.50
+    BONE:
+      buy-price: 75
+      sell-price: 0.70
+    ARROW:
+      buy-price: 10
+      sell-price: 2
+    375:
+      sell-price: 1
+    STRING:
+      sell-price: 0.75
+    FEATHER:
+      amount: 64
+      buy-price: 300
+    EGG:
+      amount: 16
+      buy-price: 350
+    LEATHER:
+      amount: 64
+      buy-price: 300
+      sell-price: 93.6
+    319:
+      amount: 64
+      buy-price: 325
+    363:
+      amount: 64
+      buy-price: 325
+    RED_ROSE:
+      buy-price: 4
+      sell-price: 0.01
