@@ -18,6 +18,7 @@ public class SellGUI extends GUI {
     private ShopItem shopItem;
     private String displayName;
     private int amount;
+    private int maxStackSize;
     private double sellPrice;
     private boolean extendedPotion;
 
@@ -30,18 +31,19 @@ public class SellGUI extends GUI {
         this.shopItem = shopItem;
         this.displayName = shopItem.getDisplayName();
         this.amount = shopItem.getAmount();
+        this.maxStackSize = shopItem.getMaxStackSize();
         this.sellPrice = shopItem.getSellPrice();
         this.extendedPotion = shopItem.isExtendedPotion();
     }
 
     private void amountAddCheck() {
-        if ((amount + 1) > material.parseMaterial().getMaxStackSize()) {
+        if ((amount + 1) > maxStackSize) {
             set(24, null, clickEvent -> clickEvent.setCancelled(true));
         }
-        if ((amount + 10) > material.parseMaterial().getMaxStackSize()) {
+        if ((amount + 10) > maxStackSize) {
             set(25, null, clickEvent -> clickEvent.setCancelled(true));
         }
-        if (amount == material.parseMaterial().getMaxStackSize()) {
+        if (amount == maxStackSize) {
             set(26, null, clickEvent -> clickEvent.setCancelled(true));
         }
     }
@@ -97,12 +99,12 @@ public class SellGUI extends GUI {
         }), event -> event.setCancelled(true));
 
         set(24, item(XMaterial.LIME_STAINED_GLASS_PANE, meta -> meta.setDisplayName("&aAdd 1")), event -> {
-            if (amount < material.parseMaterial().getMaxStackSize()) ++amount;
+            if (amount < maxStackSize) ++amount;
             updateItem(RealmsAPI.getUser(event.getWhoClicked().getUniqueId()));
         });
 
         set(25, item(XMaterial.LIME_STAINED_GLASS_PANE, meta -> meta.setDisplayName("&aAdd 10").setAmount(10)), event -> {
-            if ((amount + 10) <= material.parseMaterial().getMaxStackSize()) {
+            if ((amount + 10) <= maxStackSize) {
                 for (int i = 0; i < 10; i++) {
                     ++amount;
                 }
@@ -111,10 +113,10 @@ public class SellGUI extends GUI {
         });
 
         set(26, item(XMaterial.LIME_STAINED_GLASS_PANE, meta -> {
-            meta.setDisplayName("&aSet to " + material.parseMaterial().getMaxStackSize());
-            meta.setAmount(material.parseMaterial().getMaxStackSize());
+            meta.setDisplayName("&aSet to " + maxStackSize);
+            meta.setAmount(maxStackSize);
         }), event -> {
-            amount = material.parseMaterial().getMaxStackSize();
+            amount = maxStackSize;
             updateItem(RealmsAPI.getUser(event.getWhoClicked().getUniqueId()));
         });
 
