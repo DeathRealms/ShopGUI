@@ -34,7 +34,7 @@ public class SellPrice {
                     } else {
                         material = XMaterial.matchXMaterial(str, (byte) damage);
                     }
-                    int amount = config.getInt(material.name() + ".amount");
+                    int amount = config.getInt(material.name() + ".amount", 1);
                     double sellPrice = (config.getDouble(material.name() + ".sell-price") / amount);
                     sellPrices.put(material, new SellPrice(sellPrice));
                 }
