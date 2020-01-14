@@ -10,120 +10,194 @@ categories:
 
 farming:
   items:
-    SUGAR_CANE:
+    1:
+      item:
+        material: SUGAR_CANE
       buy-price: 10.15
       sell-price: 3.65
-    WHEAT:
-      amount: 64
+    2:
+      item:
+        material: WHEAT
+        amount: 64
       buy-price: 675
       sell-price: 192
-    CACTUS:
+    3:
+      item:
+        material: CACTUS
       buy-price: 9.37
       sell-price: 2.87
-    NETHER_STALK:
+    4:
+      item:
+        material: NETHER_STALK
       buy-price: 11.30
       sell-price: 6.25
-    CARROT_ITEM:
-      amount: 64
+    5:
+      item:
+        material: CARROT
+        amount: 64
       buy-price: 775
       sell-price: 208
-    POTATO:
-      amount: 64
+    6:
+      item:
+        material: POTATO
+        amount: 64
       buy-price: 750
       sell-price: 188.8
-    SEEDS:
-      amount: 64
+    7:
+      item:
+        material: SEEDS
+        amount: 64
       buy-price: 500
       sell-price: 16
-    MELON:
+    8:
+      item:
+        material: MELON
       buy-price: 3.12
       sell-price: 0.80
-    APPLE:
+    9:
+      item:
+        material: APPLE
       buy-price: 1000
       sell-price: 75
-    COOKIE:
-      amount: 16
+    10:
+      item:
+        material: COOKIE
+        amount: 16
       buy-price: 500
-    CAKE:
-      amount: 8
+    11:
+      item:
+        material: CAKE
+        amount: 8
       buy-price: 500
-    BREAD:
-      amount: 32
+    12:
+      item:
+        material: BREAD
+        amount: 32
       buy-price: 400
-    BAKED_POTATO:
-      amount: 32
+    13:
+      item:
+        material: BAKED_POTATO
+        amount: 32
       buy-price: 250
-    COOKED_MUTTON:
-      amount: 64
+    14:
+      item:
+        material: COOKED_MUTTON
+        amount: 64
       buy-price: 500
-    COOKED_CHICKEN:
-      amount: 64
+    15:
+      item:
+        material: COOKED_CHICKEN
+        amount: 64
+      buy-price: 64
+    16:
+      item:
+        material: COOKED_BEEF
+        amount: 64
       buy-price: 500
-    COOKED_BEEF:
-      amount: 64
+    17:
+      item:
+        material: COOKED_PORKCHOP
+        amount: 64
       buy-price: 500
-    COOKED_PORKCHOP:
-      amount: 64
+    18:
+      item:
+        material: COOKED_RABBIT
+        amount: 64
       buy-price: 500
-    COOKED_RABBIT:
-      amount: 64
-      buy-price: 500
-    COOKED_FISH:
-      amount: 16
+    19:
+      item:
+        material: COOKED_FISH
+        amount: 16
       buy-price: 750
 
 mobs:
   items:
-    368:
+    1:
+      item:
+        material: 368
       buy-price: 250
       sell-price: 25
-    289:
+    2:
+      item:
+        material: 289
       buy-price: 300
       sell-price: 6.40
-    371:
+    3:
+      item:
+        material: 371
       buy-price: 8.32
       sell-price: 4.44
-    265:
+    4:
+      item:
+        material: 265
       sell-price: 10
-    341:
-      amount: 64
+    5:
+      item:
+        material: 341
+        amount: 64
       buy-price: 300
       sell-price: 75
-    409:
-      amount: 64
+    6:
+      item:
+        material: 409
+        amount: 64
       sell-price: 100
-    369:
-      amount: 8
+    7:
+      item:
+        material: 369
+        amount: 8
       buy-price: 2500
       sell-price: 16
-    367:
+    8:
+      item:
+        material: 367
       sell-price: 2.50
-    BONE:
+    9:
+      item:
+        material: BONE
       buy-price: 75
       sell-price: 0.70
-    ARROW:
+    10:
+      item:
+        material: ARROW
       buy-price: 10
       sell-price: 2
-    375:
+    11:
+      item:
+        material: 375
       sell-price: 1
-    STRING:
+    12:
+      item:
+        material: STRING
       sell-price: 0.75
-    FEATHER:
-      amount: 64
+    13:
+      item:
+        material: FEATHER
+        amount: 64
       buy-price: 300
-    EGG:
-      amount: 16
+    14:
+      item:
+        material: EGG
+        amount: 16
       buy-price: 350
-    LEATHER:
-      amount: 64
+    15:
+      item:
+        material: LEATHER
+        amount: 64
       buy-price: 300
       sell-price: 93.6
-    319:
-      amount: 64
+    16:
+      item:
+        material: 319
+        amount: 64
       buy-price: 325
-    363:
-      amount: 64
+    17:
+      item:
+        material: 363
+        amount: 64
       buy-price: 325
-    RED_ROSE:
+    18:
+      item:
+        material: RED_ROSE
       buy-price: 4
       sell-price: 0.01

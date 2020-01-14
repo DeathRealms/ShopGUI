@@ -27,15 +27,15 @@ public class SellPrice {
             ConfigurationSection config = Shop.getShops().getConfigSection(shop + ".items");
             if (config != null) {
                 for (String str : config.getKeys(false)) {
-                    int damage = config.getInt(str + ".damage", 0);
+                    int damage = config.getInt(str + ".item.damage", 0);
                     XMaterial material;
-                    if (NumberUtils.isNumber(str)) {
-                        material = XMaterial.matchXMaterial(Integer.parseInt(str), (byte) damage);
+                    if (NumberUtils.isNumber(config.getString(str +  ".item.material"))) {
+                        material = XMaterial.matchXMaterial(Integer.parseInt(config.getString(str +  ".item.material")), (byte) damage);
                     } else {
-                        material = XMaterial.matchXMaterial(str, (byte) damage);
+                        material = XMaterial.matchXMaterial(config.getString(str +  ".item.material"), (byte) damage);
                     }
-                    int amount = config.getInt(material.name() + ".amount", 1);
-                    double sellPrice = (config.getDouble(material.name() + ".sell-price") / amount);
+                    int amount = config.getInt(str + ".item.amount", 1);
+                    double sellPrice = (config.getDouble(str + ".sell-price") / amount);
                     sellPrices.put(material, new SellPrice(sellPrice));
                 }
             }
