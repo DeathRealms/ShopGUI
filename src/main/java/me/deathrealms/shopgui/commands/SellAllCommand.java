@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class SellAllCommand extends Command {
 
     public SellAllCommand() {
-        super("sellall");
+        super("sellall", false);
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.util.List;
 public class ShopCommand extends Command {
 
     public ShopCommand() {
-        super("shop");
+        super("shop", false);
     }
 
     @Override

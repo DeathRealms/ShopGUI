@@ -8,7 +8,7 @@ import me.deathrealms.shopgui.listeners.SellGUIListener;
 public class SellCommand extends Command {
 
     public SellCommand() {
-        super("sell");
+        super("sell", false);
     }
 
     @Override
