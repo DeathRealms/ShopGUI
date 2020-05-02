@@ -15,6 +15,8 @@ public class ShopCommand extends Command {
 
     public ShopCommand() {
         super("shop", false);
+        setNoPermissionMessage(Config.noPermissionMessage);
+        addSubCommands(new ReloadCommand());
     }
 
     @Override
@@ -25,12 +27,6 @@ public class ShopCommand extends Command {
             if (args.length == 0) {
                 new ShopGUI().open(user);
             } else if (args.length == 1) {
-                if (args[0].equalsIgnoreCase("reload")) {
-                    Config.load();
-                    Shop.getShops().reloadConfig();
-                    user.sendMessage(Config.prefix + Config.reloadConfigMessage);
-                    return;
-                }
                 ConfigurationSection categories = Shop.getShops().getConfigSection("categories");
                 String title = categories.getString(args[0].toLowerCase() + ".name");
                 int rows = categories.getInt(args[0].toLowerCase() + ".rows", 6);
