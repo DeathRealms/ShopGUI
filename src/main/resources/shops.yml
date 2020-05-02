@@ -114,43 +114,43 @@ mobs:
   items:
     1:
       item:
-        material: 368
+        material: ENDER_PEARL
       buy-price: 250
       sell-price: 25
     2:
       item:
-        material: 289
+        material: GUNPOWDER
       buy-price: 300
       sell-price: 6.40
     3:
       item:
-        material: 371
+        material: GOLD_NUGGET
       buy-price: 8.32
       sell-price: 4.44
     4:
       item:
-        material: 265
+        material: IRON_INGOT
       sell-price: 10
     5:
       item:
-        material: 341
+        material: SLIME_BALL
         amount: 64
       buy-price: 300
       sell-price: 75
     6:
       item:
-        material: 409
+        material: PRISMARINE_SHARD
         amount: 64
       sell-price: 100
     7:
       item:
-        material: 369
+        material: BLAZE_ROD
         amount: 8
       buy-price: 2500
       sell-price: 16
     8:
       item:
-        material: 367
+        material: ROTTEN_FLESH
       sell-price: 2.50
     9:
       item:
@@ -164,7 +164,7 @@ mobs:
       sell-price: 2
     11:
       item:
-        material: 375
+        material: SPIDER_EYE
       sell-price: 1
     12:
       item:
@@ -188,12 +188,12 @@ mobs:
       sell-price: 93.6
     16:
       item:
-        material: 319
+        material: PORKCHOP
         amount: 64
       buy-price: 325
     17:
       item:
-        material: 363
+        material: BEEF
         amount: 64
       buy-price: 325
     18:
