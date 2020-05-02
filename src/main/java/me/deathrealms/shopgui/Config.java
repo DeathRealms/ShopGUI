@@ -22,7 +22,7 @@ public class Config {
     public static String notEnoughItemsToSell = format("&cYou do not have enough items to sell.");
     public static String itemPurchased = format("&aYou have purchased &f%amount% %item% &afor &f$%money%");
     public static String itemSold = format("&aYou have sold &f%amount% %item% &afor &f$%money%");
-    public static String middleClickSellAll = format("&aYou sold &f%amount% %item% for &f$%money%");
+    public static String middleClickSellAll = format("&aYou sold &f%amount% %item% &afor &f$%money%");
     public static String sellAllMessage = format("&aSold items for &f$%money%");
     public static List<String> buyLore = format(Lists.newArrayList("&7Buy Price: &c$%buyprice%"));
     public static List<String> sellLore = format(Lists.newArrayList("&7Sell Price: &a$%sellprice%", "&9Middle click to sell all"));
