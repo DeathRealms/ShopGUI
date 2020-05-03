@@ -11,9 +11,11 @@ public class Config {
     public static String shopTitle = format("&cShop");
     public static String sellTitle = format("&cSell");
     public static int shopRows = 2;
+    public static boolean perShopPermissions = true;
     public static String prefix = format("&8[&aShopGUI&8] ");
     public static String noPermissionMessage = format("&cYou do not have permission to do this.");
     public static String reloadConfigMessage = format("&7You have reloaded all configuration files.");
+    public static String noPermissionForShop = format("&cYou do not have permission for this shop.");
     public static String shopNotFoundMessage = format("&cShop not found.");
     public static String cannotAffordPurchase = format("&cYou cannot afford to purchase this.");
     public static String cannotBuyItem = format("&cYou cannot buy this item.");

@@ -1,6 +1,5 @@
 package me.deathrealms.shopgui.gui;
 
-import me.deathrealms.realmsapi.RealmsAPI;
 import me.deathrealms.realmsapi.XMaterial;
 import me.deathrealms.realmsapi.inventories.PagedGUI;
 import me.deathrealms.realmsapi.items.ItemUtils;
@@ -11,9 +10,11 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.configuration.ConfigurationSection;
 
 public class ShopGUI extends PagedGUI {
+    private final User user;
 
-    public ShopGUI() {
+    public ShopGUI(User user) {
         super(Config.shopTitle, Config.shopRows, true);
+        this.user = user;
     }
 
     @Override
@@ -30,12 +31,21 @@ public class ShopGUI extends PagedGUI {
             } else {
                 material = XMaterial.matchXMaterial(materialName, (byte) damage);
             }
+            if (Config.perShopPermissions) {
+                if (!user.isAuthorized("shopgui.shop." + category.toLowerCase())) {
+                    material = XMaterial.RED_STAINED_GLASS_PANE;
+                }
+            }
             add(material, meta -> {
-                meta.setNBTString("category", category);
+                meta.addNBTString("category", category);
                 meta.setDisplayName(name);
                 meta.setDamage(damage);
+                if (Config.perShopPermissions) {
+                    if (!user.isAuthorized("shopgui.shop." + category.toLowerCase())) {
+                        meta.setLore(Config.noPermissionForShop);
+                    }
+                }
             }, event -> {
-                User user = RealmsAPI.getUser(event.getWhoClicked().getUniqueId());
                 String title;
                 if (shops != null) {
                     title = shops.getString("name", categories.getString(ItemUtils.getNBTString(event.getCurrentItem(), "category") + ".name"));
@@ -44,7 +54,15 @@ public class ShopGUI extends PagedGUI {
                 }
                 int rows = categories.getInt(ItemUtils.getNBTString(event.getCurrentItem(), "category") + ".rows", 6);
                 if (rows == 1) rows = 2;
-                new CategoryGUI(user, category, title, rows).open(user);
+                if (Config.perShopPermissions) {
+                    if (!user.isAuthorized("shopgui.shop." + category.toLowerCase())) {
+                        user.sendMessage(Config.prefix + Config.noPermissionForShop);
+                    } else {
+                        new CategoryGUI(user, category, title, rows).open(user);
+                    }
+                } else {
+                    new CategoryGUI(user, category, title, rows).open(user);
+                }
             });
         }
     }

@@ -22,7 +22,7 @@ public class CategoryGUI extends PagedGUI {
     private int rows;
 
     public CategoryGUI(User user, String shop, String title, int rows) {
-        super(title, rows, new Button(XMaterial.BOOK.parseItem(), meta -> meta.setDisplayName("&7Return to Main Menu"), event -> new ShopGUI().open(user)),
+        super(title, rows, new Button(XMaterial.BOOK.parseItem(), meta -> meta.setDisplayName("&7Return to Main Menu"), event -> new ShopGUI(user).open(user)),
                 true);
         this.category = shop;
         this.title = title;

@@ -25,7 +25,7 @@ public class ShopCommand extends Command {
             user.sendMessage(Config.noPermissionMessage);
         } else {
             if (args.length == 0) {
-                new ShopGUI().open(user);
+                new ShopGUI(user).open(user);
             } else if (args.length == 1) {
                 ConfigurationSection categories = Shop.getShops().getConfigSection("categories");
                 String title = categories.getString(args[0].toLowerCase() + ".name");
@@ -33,10 +33,18 @@ public class ShopCommand extends Command {
                 if (title == null) {
                     user.sendMessage(Config.prefix + Config.shopNotFoundMessage.replace("%shop%", args[0].toLowerCase()));
                 } else {
-                    new CategoryGUI(user, args[0].toLowerCase(), title, rows).open(user);
+                    if (Config.perShopPermissions) {
+                        if (!user.isAuthorized("shopgui.shop." + args[0].toLowerCase())) {
+                            user.sendMessage(Config.prefix + Config.noPermissionForShop);
+                        } else {
+                            new CategoryGUI(user, args[0].toLowerCase(), title, rows).open(user);
+                        }
+                    } else {
+                        new CategoryGUI(user, args[0].toLowerCase(), title, rows).open(user);
+                    }
                 }
             } else {
-                new ShopGUI().open(user);
+                new ShopGUI(user).open(user);
             }
         }
     }
@@ -45,7 +53,17 @@ public class ShopCommand extends Command {
     public List<String> tabCompleteOptions(User user, String[] args) {
         if (args.length == 1 && user.isAuthorized("shopgui.command.shop")) {
             ConfigurationSection categories = Shop.getShops().getConfigSection("categories");
-            return new ArrayList<>(categories.getKeys(false));
+            List<String> shops = emptyList();
+            for (String shop : categories.getKeys(false)) {
+                if (Config.perShopPermissions) {
+                    if (user.isAuthorized("shopgui.shop." + shop)) {
+                        shops.add(shop);
+                    }
+                } else {
+                    return new ArrayList<>(categories.getKeys(false));
+                }
+            }
+            return shops;
         } else {
             return emptyList();
         }
