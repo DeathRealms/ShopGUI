@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SellPrice {
-    private static Map<XMaterial, SellPrice> sellPrices;
+    private static final Map<XMaterial, SellPrice> sellPrices;
 
     static {
         sellPrices = new HashMap<>();
     }
 
-    private double sellPrice;
+    private final double sellPrice;
 
     public SellPrice(double sellPrice) {
         this.sellPrice = sellPrice;
@@ -29,10 +29,10 @@ public class SellPrice {
                 for (String str : config.getKeys(false)) {
                     int damage = config.getInt(str + ".item.damage", 0);
                     XMaterial material;
-                    if (NumberUtils.isNumber(config.getString(str +  ".item.material"))) {
-                        material = XMaterial.matchXMaterial(Integer.parseInt(config.getString(str +  ".item.material")), (byte) damage);
+                    if (NumberUtils.isNumber(config.getString(str + ".item.material"))) {
+                        material = XMaterial.matchXMaterial(Integer.parseInt(config.getString(str + ".item.material")), (byte) damage);
                     } else {
-                        material = XMaterial.matchXMaterial(config.getString(str +  ".item.material"), (byte) damage);
+                        material = XMaterial.matchXMaterial(config.getString(str + ".item.material"), (byte) damage);
                     }
                     int amount = config.getInt(str + ".item.amount", 1);
                     double sellPrice = (config.getDouble(str + ".sell-price") / amount);

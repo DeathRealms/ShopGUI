@@ -11,19 +11,19 @@ import me.deathrealms.shopgui.utils.ShopItem;
 import org.bukkit.inventory.ItemStack;
 
 public class SellGUI extends GUI {
-    private String shop;
-    private String title;
-    private int rows;
-    private XMaterial material;
-    private ShopItem shopItem;
-    private String displayName;
+    private final String shop;
+    private final String title;
+    private final int rows;
+    private final XMaterial material;
+    private final ShopItem shopItem;
+    private final String displayName;
+    private final int maxStackSize;
+    private final double sellPrice;
+    private final boolean extendedPotion;
     private int amount;
-    private int maxStackSize;
-    private double sellPrice;
-    private boolean extendedPotion;
 
     public SellGUI(String shop, String title, int rows, XMaterial material, ShopItem shopItem) {
-        super("&aSelling " + material.toWord().trim(), 6);
+        super("&aSelling " + material.toWord(), 6);
         this.shop = shop;
         this.title = title;
         this.rows = rows;
@@ -132,7 +132,7 @@ public class SellGUI extends GUI {
                 Shop.getEconomy().depositPlayer(user.getOfflineBase(), (sellPrice * amount));
                 user.sendMessage(Config.itemSold
                         .replace("%amount%", amount + "x")
-                        .replace("%item%", material.toWord().trim())
+                        .replace("%item%", material.toWord())
                         .replace("%money%", String.valueOf((Math.round((sellPrice * amount) * 100.0) / 100.0))));
                 user.getInventory().removeItem(item);
                 new CategoryGUI(user, shop, title, rows).open(user);

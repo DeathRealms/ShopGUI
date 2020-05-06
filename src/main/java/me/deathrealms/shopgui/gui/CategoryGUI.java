@@ -17,9 +17,9 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 
 public class CategoryGUI extends PagedGUI {
-    private String category;
-    private String title;
-    private int rows;
+    private final String category;
+    private final String title;
+    private final int rows;
 
     public CategoryGUI(User user, String shop, String title, int rows) {
         super(title, rows, new Button(XMaterial.BOOK.parseItem(), meta -> meta.setDisplayName("&7Return to Main Menu"), event -> new ShopGUI(user).open(user)),
@@ -116,7 +116,7 @@ public class CategoryGUI extends PagedGUI {
                                         double total = Math.round((sellPrice * amountSold) * 100.0) / 100.0;
                                         user.sendMessage(Config.prefix + Config.middleClickSellAll
                                                 .replace("%amount%", String.valueOf(amountSold))
-                                                .replace("%item%", material.toWord().trim())
+                                                .replace("%item%", material.toWord())
                                                 .replace("%money%", String.valueOf(total)));
                                         Shop.getEconomy().depositPlayer(user.getOfflineBase(), (sellPrice * amountSold));
                                     } else {

@@ -17,23 +17,23 @@ import org.bukkit.plugin.Plugin;
 import java.util.List;
 
 public class BuyStacksGUI extends GUI {
-    private Plugin silkSpawners;
-    private Plugin epicSpawners;
-    private String shop;
-    private String title;
-    private int rows;
-    private XMaterial material;
-    private ShopItem shopItem;
-    private int maxStackSize;
-    private boolean stackable;
-    private double buyPrice;
-    private boolean extendedPotion;
-    private boolean spawner;
-    private String mobType;
-    private List<String> commands;
+    private final Plugin silkSpawners;
+    private final Plugin epicSpawners;
+    private final String shop;
+    private final String title;
+    private final int rows;
+    private final XMaterial material;
+    private final ShopItem shopItem;
+    private final int maxStackSize;
+    private final boolean stackable;
+    private final double buyPrice;
+    private final boolean extendedPotion;
+    private final boolean spawner;
+    private final String mobType;
+    private final List<String> commands;
 
     public BuyStacksGUI(String shop, String title, int rows, XMaterial material, ShopItem shopItem) {
-        super("&cBuying Stacks of " + material.toWord().trim(), 2);
+        super("&cBuying Stacks of " + material.toWord(), 2);
         this.silkSpawners = Bukkit.getPluginManager().getPlugin("SilkSpawners");
         this.epicSpawners = Bukkit.getPluginManager().getPlugin("EpicSpawners");
         this.shop = shop;
@@ -82,7 +82,7 @@ public class BuyStacksGUI extends GUI {
             }
             user.sendMessage(Config.itemPurchased
                     .replace("%amount%", stacks + (stacks == 1 ? "x Stack of" : "x Stacks of"))
-                    .replace("%item%", spawner ? WordUtils.capitalizeFully(mobType) + " Spawners" : material.toWord().trim())
+                    .replace("%item%", spawner ? WordUtils.capitalizeFully(mobType) + " Spawners" : material.toWord())
                     .replace("%money%", String.valueOf((buyPrice * amount))));
             for (String command : commands) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ChatUtils.parsePlaceholders(user, command));

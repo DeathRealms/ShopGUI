@@ -8,6 +8,7 @@ import java.util.List;
 import static me.deathrealms.realmsapi.utils.ChatUtils.format;
 
 public class Config {
+    private static final transient Config instance = new Config();
     public static String shopTitle = format("&cShop");
     public static String sellTitle = format("&cSell");
     public static int shopRows = 2;
@@ -28,8 +29,6 @@ public class Config {
     public static String sellAllMessage = format("&aSold items for &f$%money%");
     public static List<String> buyLore = format(Lists.newArrayList("&7Buy Price: &c$%buyprice%"));
     public static List<String> sellLore = format(Lists.newArrayList("&7Sell Price: &a$%sellprice%", "&9Middle click to sell all"));
-
-    private static transient Config instance = new Config();
 
     public static void load() {
         new Serializer().load(instance, Config.class, "config");
